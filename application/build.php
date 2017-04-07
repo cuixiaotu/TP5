@@ -40,6 +40,12 @@ return [
           'controller' => ['Index','Image'],
 
     ],   
+     'bis' =>[
+          '__dir__'    =>['controller','view'],   
+          'controller' => ['Register','Login'],
+    ],   
+
+
 
 
 ];

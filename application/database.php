@@ -15,13 +15,13 @@ return [
     // 服务器地址
     'hostname'        => '127.0.0.1',
     // 数据库名
-    'database'        => '',
+    'database'        => 'o2o',
     // 用户名
     'username'        => 'root',
     // 密码
     'password'        => 'root',
     // 端口
-    'hostport'        => 'o2o',
+    'hostport'        => '',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
