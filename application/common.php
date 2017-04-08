@@ -65,3 +65,52 @@ function bisRegister($status){
    echo $str;
 
 }
+
+//通用的分页样式
+function pagination($obj){
+  if (!$obj) {
+    return '';
+  }
+
+  return '<div class="cl pd-5 bg-1 bk-gray mt-20">'.$obj->render().'</div>';
+}
+
+//获取二级城市名称
+function getSeCityName($path){
+  
+   if (empty($path)) {
+     return '';
+   }
+
+  //这样确定是二级分类
+   if (preg_match('/,/', $path)) {
+      $cityPath = explode(',', $path);
+      $cityId   = $cityPath[1];
+   }else{
+       $cityId   = $path;
+   }
+
+   $city = model("City")->get($cityId);
+   return $city->name;
+
+}
+
+//获取二级分类名称
+function getSeCategoryName($path){
+  
+   if (empty($path)) {
+     return '';
+   }
+
+  //这样确定是二级分类
+   if (preg_match('/,/', $path)) {
+      $categoryPath = explode(',', $path);
+      $categoryId  = $categoryPath[1];
+   }else{
+       $categoryId   = $path;
+   }
+
+   $category = model("Category")->get($categoryId);
+   return $category->name;
+
+}
