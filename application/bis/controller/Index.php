@@ -8,7 +8,9 @@ class Index extends Base{
       return $this->fetch();
     }
 
-
+    public function welcome(){
+    	return $this->fetch();
+    }
 
 
 

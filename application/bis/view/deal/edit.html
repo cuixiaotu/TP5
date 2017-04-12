@@ -7,7 +7,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>团购名称：</label>
 			<div class="formControls col-xs-8 col-sm-3">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
+				<input type="text" class="input-text" value="{$deal.name}" placeholder="" id="" name="name">
 			</div>
 		</div>
 		
@@ -18,7 +18,7 @@
 				<select name="city_id" class="select cityId">
 					<option value="0">--请选择--</option>
 					{volist name="citys" id="vo"}
-					<option value="{$vo.id}">{$vo.name}</option>
+					<option value="{$vo.id}" {if condition="$deal.city_id eq $vo.id"} selected="selected"{/if} >{$vo.name}</option>
 					{/volist}
 				</select>
 				</span>
@@ -38,7 +38,7 @@
 				<select name="category_id" class="select categoryId">
 					<option value="0">--请选择--</option>
 					{volist name="categorys" id="vo"}
-					<option value="{$vo.id}">{$vo.name}</option>
+					<option value="{$vo.id}" {if condition="$deal.category_id eq $vo.id"} selected="selected"{/if}>{$vo.name}</option>
 					{/volist}
 				</select>
 				</span>
@@ -48,6 +48,7 @@
 			<label class="form-label col-xs-4 col-sm-2">所属子类：</label>
 			<div class="formControls col-xs-8 col-sm-3 skin-minimal">
 				<div class="check-box se_category_id">
+				<label><input name="se_category_id" type="radio" value=""  checked="checked"/>{$deal.se_category_id} </label> 
 				</div>
 			</div>
 		</div>
@@ -66,16 +67,16 @@
 		<div class="row cl">
               <label class="form-label col-xs-4 col-sm-2">缩略图：</label>
               <div class="formControls col-xs-8 col-sm-9">
-                <input id="file_upload"  type="file" multiple="true" >
-                <img style="display: none" id="upload_org_code_img" src="" width="150" height="150">
-                <input id="file_upload_image" name="image" type="hidden" multiple="true" value="">
+               
+                <img id="upload_org_code_img" src="{$deal.image}" width="150" height="150">
+            
               </div>
         </div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">团购开始时间：</label>
 			<div class="formControls col-xs-8 col-sm-3">
 				
-				<input type="text" name="start_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value=""  > 
+				<input type="text" name="start_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.start_time}"  > 
 
 			</div>
 		</div>
@@ -83,59 +84,59 @@
 			<label class="form-label col-xs-4 col-sm-2">团购结束时间:</label>
 			<div class="formControls col-xs-8 col-sm-3">
 				
-				<input type="text" name="end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value=""  >
+				<input type="text" name="end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.end_time}"  >
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">库存数:</label>
 			<div class="formControls col-xs-8 col-sm-3">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="total_count">
+				<input type="text" class="input-text" value="{$deal.total_count}" placeholder="" id="" name="total_count">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">原价:</label>
 			<div class="formControls col-xs-8 col-sm-3">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="origin_price">
+				<input type="text" class="input-text" value="{$deal.origin_price}" placeholder="" id="" name="origin_price">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">团购价:</label>
 			<div class="formControls col-xs-8 col-sm-3">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="current_price">
+				<input type="text" class="input-text" value="{$deal.current_price}" placeholder="" id="" name="current_price">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">消费券生效时间：</label>
 			<div class="formControls col-xs-8 col-sm-3">
 				
-				<input type="text" name="coupons_begin_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value=""  >
+				<input type="text" name="coupons_begin_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.coupons_begin_time}"  >
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">消费券结束时间:</label>
 			<div class="formControls col-xs-8 col-sm-3">
 				
-				<input type="text" name="coupons_end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value=""  >
+				<input type="text" name="coupons_end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.coupons_end_time}"  >
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">团购描述：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<script id="editor"  type="text/plain" name="description" style="width:80%;height:300px;"></script> 
+				<script id="editor"  type="text/plain" name="description" style="width:80%;height:300px;">{$deal.description}</script> 
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">购买须知：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<script id="editor2"  type="text/plain" name="notes" style="width:80%;height:300px;"></script> 
+				<script id="editor2"  type="text/plain" name="notes" style="width:80%;height:300px;">{$deal.notes}</script> 
 			</div>
 		</div>
 		
-		<div class="row cl">
+	<!-- 	<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 申请</button>	
 			</div>
-		</div>
+		</div> -->
 	</form>
 </article>
 <script type="text/javascript">

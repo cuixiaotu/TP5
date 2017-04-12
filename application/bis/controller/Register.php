@@ -40,7 +40,7 @@ class Register extends controller
 
        //获取经纬度
        $lnglat = \Map::getLngLat($data['address']);
-       var_dump($lnglat);
+       //var_dump($lnglat);
        if (empty($lnglat)||$lnglat['status']!=0||$lnglat['result']['precise']!=1) {
        	  $this->error('无法获取数据，或者匹配地址不精确');
        }
